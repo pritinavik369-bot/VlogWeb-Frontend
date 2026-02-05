@@ -26,6 +26,13 @@ throw error;
 }
 connectDb(); 
 
+mongoose.connection.on('connected', () => {
+  console.log('✅ MongoDB connected to:', mongoose.connection.name);
+});
+
+mongoose.connection.on('error', (err) => {
+  console.log('❌ MongoDB connection error:', err);
+});
 
 //deploy
 const ___direname = path.resolve();
