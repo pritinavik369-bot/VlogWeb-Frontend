@@ -3,7 +3,7 @@ import moment from "moment";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button, Textarea } from "flowbite-react"; // Flowbite Textarea
-
+import { BASE_URL } from "../../config.js";
 
 
 function Comment({ comment, onLike , onEdit ,onDelete }) {
@@ -16,7 +16,7 @@ function Comment({ comment, onLike , onEdit ,onDelete }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch(`/server/user/${comment.userId}`);
+        const res = await fetch(`${BASE_URL}/server/user/${comment.userId}`);
         if (!res.ok) {
           throw new Error("Failed to fetch user data");
         }
@@ -37,7 +37,7 @@ function Comment({ comment, onLike , onEdit ,onDelete }) {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("access_token");
-      const response = await fetch(`/server/comment/editComment/${comment._id}`, {
+      const response = await fetch(`${BASE_URL}/server/comment/editComment/${comment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

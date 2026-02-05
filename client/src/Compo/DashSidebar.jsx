@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
+import { BASE_URL } from "../../config.js";
 
 function DashSidebar() {
   const location = useLocation();
@@ -20,7 +21,7 @@ function DashSidebar() {
 
   const handleSignOut = async () => {
     try {
-      const response = await fetch("/server/user/signout", { method: "POST" });
+      const response = await fetch(`${BASE_URL}/server/user/signout`, { method: "POST" });
       const data = await response.json();
 
       if (response.ok) {

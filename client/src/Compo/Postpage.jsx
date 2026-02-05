@@ -4,6 +4,7 @@ import { Button, Spinner } from "flowbite-react";
 import PostCaed from "./PostCaed";
 import CallToAction from "./CallToAction";
 import CommentSection from "./CommentSection";
+import { BASE_URL } from "../../config.js";
 
 export default function Postpage() {
   const { postSlug } = useParams();
@@ -19,7 +20,7 @@ export default function Postpage() {
         setLoading(true);
         setError(false);
 
-        const res = await fetch(`/server/post/getposts?slug=${postSlug}`, {
+        const res = await fetch(`${BASE_URL}/server/post/getposts?slug=${postSlug}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -47,7 +48,7 @@ export default function Postpage() {
     const fetchRecentPosts = async () => {
       const token = localStorage.getItem("access_token");
       try {
-        const res = await fetch(`/server/post/getposts?limit=2`, {
+        const res = await fetch(`${BASE_URL}/server/post/getposts?limit=2`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

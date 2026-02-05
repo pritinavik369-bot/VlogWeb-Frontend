@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { BASE_URL } from "../../config.js";
 
 function DashPost() {
   const { currentUser } = useSelector((state) => state.user);
@@ -18,7 +19,7 @@ function DashPost() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`/server/post/getPosts`);
+        const res = await fetch(`${BASE_URL}/server/post/getPosts`);
         const data = await res.json();
         console.log(data); // Check the structure of data
 
@@ -56,7 +57,7 @@ function DashPost() {
     try {
       const token = localStorage.getItem("access_token");
       console.log(postIdDelete, currentUser.id);
-      const res = await fetch(`/server/post/deletepost/${postIdDelete}/${currentUser._id}`, {
+      const res = await fetch(`${BASE_URL}/server/post/deletepost/${postIdDelete}/${currentUser._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

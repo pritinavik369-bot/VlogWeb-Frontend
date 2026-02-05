@@ -14,6 +14,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
+import { BASE_URL } from "../../config.js";
 
 function Header() {
   const location = useLocation();
@@ -40,7 +41,7 @@ if(searchTermFromUrl){
     setIsModalOpen(false); // Close modal
 
     try {
-      const response = await fetch("/server/user/signout", { method: "POST" });
+      const response = await fetch(`${BASE_URL}/server/user/signout`, { method: "POST" });
       const data = await response.json();
 
       if (response.ok) {

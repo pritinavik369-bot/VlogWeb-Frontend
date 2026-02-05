@@ -4,6 +4,7 @@ import { signInStart, signInSuccess, signInFailure } from '../../redux/user/user
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import OAuth from "../../Compo/OAuth";
+import { BASE_URL } from "../../config.js";
 
 function SignIn() {
   // State for form data
@@ -33,7 +34,7 @@ function SignIn() {
 
     try {
       dispatch(signInStart());
-      const res = await fetch('/server/auth/signin', {
+      const res = await fetch(`${BASE_URL}/server/auth/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

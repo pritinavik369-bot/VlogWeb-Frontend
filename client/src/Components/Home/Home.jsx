@@ -2,13 +2,13 @@ import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CallToAction from "../../Compo/CallToAction.jsx";
 import PostCaed from "../../Compo/PostCaed.jsx";
-
+import { BASE_URL } from "../../config.js";
 function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getPosts = async () => {
-      const res = await fetch(`/server/post/getPosts`, {
+      const res = await fetch(`${BASE_URL}/server/post/getPosts`, {
         method: "GET",
       });
       const data = await res.json();

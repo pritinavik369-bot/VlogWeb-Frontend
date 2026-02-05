@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { Alert } from "flowbite-react"; // Import Flowbite Alert
+import { BASE_URL } from "../../config.js";
 
 function ContactMe() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -21,7 +22,7 @@ function ContactMe() {
     const token = localStorage.getItem("access_token");
 
     try {
-      const response = await fetch("/server/user/contact", {
+      const response = await fetch(`${BASE_URL}/server/user/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

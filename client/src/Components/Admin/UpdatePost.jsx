@@ -6,6 +6,7 @@ import { app } from "../../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../../config.js";
 
 function UpdatePost() {
   const [file, setFile] = useState(null);
@@ -21,7 +22,7 @@ function UpdatePost() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`/server/post/getposts?postId=${postId}`);
+        const res = await fetch(`${BASE_URL}/server/post/getposts?postId=${postId}`);
         const data = await res.json();
         if (res.ok && data.post[0]) {
           setFormData({

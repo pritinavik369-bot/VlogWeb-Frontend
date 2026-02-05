@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from "../../firebase";
 import {useNavigate} from 'react-router-dom'
-
+import { BASE_URL } from "../../config.js";
 
 import 'react-quill/dist/quill.snow.css';
 
@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
   // The cookie with `httpOnly` will be automatically included in the request
   
   try {
-      const res = await fetch(`/server/post/create`, {
+      const res = await fetch(`${BASE_URL}/server/post/create`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

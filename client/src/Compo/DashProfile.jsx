@@ -3,6 +3,8 @@
 import { Alert, Button, Modal, TextInput } from "flowbite-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { BASE_URL } from "../../config.js";
+
 import {
   getDownloadURL,
   getStorage,
@@ -101,7 +103,7 @@ function DashProfile() {
     dispatch(updateStart());
     const token = localStorage.getItem("access_token");
     try {
-      const response = await fetch(`/server/user/update/${currentUser._id}`, {
+      const response = await fetch(`${BASE_URL}/server/user/update/${currentUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +138,7 @@ function DashProfile() {
   const handleSignOut = async () => {
     try {
       const response = await fetch(
-        "/server/user/signout",
+        `${BASE_URL}/server/user/signout`,
         {
           method: "POST",
          
@@ -169,7 +171,7 @@ function DashProfile() {
 
       // Include the token in the Authorization header
      
-      const res = await fetch(`/server/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${BASE_URL}/server/user/delete/${currentUser._id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

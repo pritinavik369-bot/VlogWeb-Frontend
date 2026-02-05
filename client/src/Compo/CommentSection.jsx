@@ -4,6 +4,8 @@ import { Link , useNavigate } from "react-router-dom";
 import { Textarea, Button, Alert , Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import Comment from "./Comment";
+import { BASE_URL } from "../../config.js";
+
 
 function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user) || {};
@@ -24,7 +26,7 @@ function CommentSection({ postId }) {
     const token = localStorage.getItem("access_token");
 
     try {
-      const res = await fetch("/server/comment/create", {
+      const res = await fetch(`${BASE_URL}/server/comment/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +54,7 @@ function CommentSection({ postId }) {
     const getComments = async () => {
       const token = localStorage.getItem("access_token");
       try {
-        const res = await fetch(`/server/comment/getPostComment/${postId}`, {
+        const res = await fetch(`${BASE_URL}/server/comment/getPostComment/${postId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -85,7 +87,7 @@ function CommentSection({ postId }) {
         return;
       }
   
-      const res = await fetch(`/server/comment/likeComment/${commentId}`, {
+      const res = await fetch(`${BASE_URL}/server/comment/likeComment/${commentId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -136,7 +138,7 @@ function CommentSection({ postId }) {
         return;
       }
   
-      const res = await fetch(`/server/comment/deleteComment/${commentToDelete}`, {
+      const res = await fetch(`${BASE_URL}/server/comment/deleteComment/${commentToDelete}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

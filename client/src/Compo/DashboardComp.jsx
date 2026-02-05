@@ -3,6 +3,8 @@ import { React, useEffect, useState } from "react";
 import { HiAnnotation, HiArrowCircleUp, HiDocumentText, HiOutlineUserGroup } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../config.js";
+
 function DashboardComp() {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
@@ -19,7 +21,7 @@ function DashboardComp() {
       try {
         const token = localStorage.getItem("access_token");
 
-        const res = await fetch(`/server/user/getUsers`, {
+        const res = await fetch(`${BASE_URL}/server/user/getUsers`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +41,7 @@ function DashboardComp() {
       try {
         const token = localStorage.getItem("access_token");
 
-        const res = await fetch(`/server/post/getposts?limit=5`, {
+        const res = await fetch(`${BASE_URL}/server/post/getposts?limit=5`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +60,7 @@ function DashboardComp() {
     const fetchComments = async () => {
       try {
         const token = localStorage.getItem("access_token");
-        const res = await fetch(`/server/comment/getComments?limit=5`, {
+        const res = await fetch(`${BASE_URL}/server/comment/getComments?limit=5`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

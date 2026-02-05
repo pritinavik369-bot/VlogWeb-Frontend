@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { BASE_URL } from "../../config.js";
+
 function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
   const [users, setUsers] = useState([]); // Store all users fetched from the server
@@ -17,7 +19,7 @@ function DashUsers() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("access_token");
-        const res = await fetch(`/server/user/getusers`, {
+        const res = await fetch(`${BASE_URL}/server/user/getusers`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -60,7 +62,7 @@ function DashUsers() {
     try {
       const token = localStorage.getItem("access_token"); // Retrieve the token from localStorage
 
-      const res = await fetch(`/server/user/delete/${userIdToDelete}`, {
+      const res = await fetch(`${BASE_URL}/server/user/delete/${userIdToDelete}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header

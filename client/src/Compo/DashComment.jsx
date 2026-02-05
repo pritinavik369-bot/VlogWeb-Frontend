@@ -2,6 +2,7 @@ import { Button, Table, Modal } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { BASE_URL } from "../../config.js";
 
 function DashComment() {
   const { currentUser } = useSelector((state) => state.user);
@@ -16,7 +17,7 @@ function DashComment() {
     const fetchComments = async () => {
       try {
         const token = localStorage.getItem("access_token");
-        const res = await fetch(`/server/comment/getcomments`, {
+        const res = await fetch(`${BASE_URL}/server/comment/getcomments`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -57,7 +58,7 @@ function DashComment() {
     setShowModal(false);
     try {
       const token = localStorage.getItem("access_token");
-      const res = await fetch(`/server/comment/deleteComment/${commentIdToDelete}`, {
+      const res = await fetch(`${BASE_URL}/server/comment/deleteComment/${commentIdToDelete}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

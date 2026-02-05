@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 // Ensure correct import
 import PostCaed from "../../Compo/PostCaed";
+import { BASE_URL } from "../../config.js";
+
+
 function Search() {
   const [sidebarData, setSideBarData] = useState({
     searchTerm: "",
@@ -39,7 +42,7 @@ function Search() {
       });
     
       try {
-        const res = await fetch(`/server/post/getposts?${queryParams.toString()}`);
+        const res = await fetch(`${BASE_URL}/server/post/getposts?${queryParams.toString()}`);
         if (!res.ok) throw new Error("Failed to fetch posts");
     
         const data = await res.json();
@@ -78,7 +81,7 @@ function Search() {
     urlParams.set('startIndex', startIndex);
     const searchQuery = urlParams.toString();
     try {
-      const res = await fetch(`/server/post/getposts?${searchQuery}`);
+      const res = await fetch(`${BASE_URL}/server/post/getposts?${searchQuery}`);
       if (!res.ok) throw new Error("Failed to fetch more posts");
 
       const data = await res.json();
