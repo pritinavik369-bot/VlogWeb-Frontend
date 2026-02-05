@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { FaCheck, FaTimes } from "react-icons/fa";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);

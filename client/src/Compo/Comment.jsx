@@ -3,7 +3,7 @@ import moment from "moment";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Button, Textarea } from "flowbite-react"; // Flowbite Textarea
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 
 function Comment({ comment, onLike , onEdit ,onDelete }) {

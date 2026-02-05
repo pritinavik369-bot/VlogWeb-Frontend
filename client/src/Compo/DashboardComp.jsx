@@ -3,7 +3,7 @@ import { React, useEffect, useState } from "react";
 import { HiAnnotation, HiArrowCircleUp, HiDocumentText, HiOutlineUserGroup } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 function DashboardComp() {
   const [users, setUsers] = useState([]);

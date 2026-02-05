@@ -3,7 +3,7 @@
 import { Alert, Button, Modal, TextInput } from "flowbite-react";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 import {
   getDownloadURL,

@@ -14,7 +14,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 function Header() {
   const location = useLocation();

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 function DashSidebar() {
   const location = useLocation();

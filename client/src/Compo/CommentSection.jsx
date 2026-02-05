@@ -4,7 +4,8 @@ import { Link , useNavigate } from "react-router-dom";
 import { Textarea, Button, Alert , Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import Comment from "./Comment";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
+
 
 
 function CommentSection({ postId }) {

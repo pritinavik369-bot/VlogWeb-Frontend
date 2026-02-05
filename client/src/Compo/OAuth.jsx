@@ -5,7 +5,7 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInFailure, signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 import React from 'react';
 
 function OAuth() {

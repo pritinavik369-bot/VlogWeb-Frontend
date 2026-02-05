@@ -4,7 +4,7 @@ import { Button, Spinner } from "flowbite-react";
 import PostCaed from "./PostCaed";
 import CallToAction from "./CallToAction";
 import CommentSection from "./CommentSection";
-import { BASE_URL } from "../../config.js";
+import { BASE_URL } from "../config.js";
 
 export default function Postpage() {
   const { postSlug } = useParams();
